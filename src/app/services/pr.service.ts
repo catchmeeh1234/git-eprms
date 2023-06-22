@@ -41,6 +41,14 @@ export class PrService {
     return this.http.get(API_URL + `/prApproveStatus.php?prnum=${prnum}&status=${status}&name=${username}&stat=${button}`, {responseType: 'text'});
   }
 
+  telLDisapprove(prnum) {
+    return this.http.get(API_URL + `/api/telLDisapprove.php?prnum=${prnum}`, {responseType: 'json'});
+  }
+
+  prHistory(prnum) {
+    return this.http.get(API_URL + `/api/prHistory.php?prnum=${prnum}`, {responseType: 'json'});
+  }
+
   loadTotalAS() {
     return this.http.get(API_URL + '/api/LoadTotalAS.php', {responseType: 'text'});
   }

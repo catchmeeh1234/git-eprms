@@ -38,7 +38,7 @@
 
 				<ng-container matColumnDef="TotalCost">
 					<mat-header-cell *matHeaderCellDef> Total Price </mat-header-cell>
-					<mat-cell *matCellDef="let row"> {{row.pr_quantity * row.pr_cost | number:'1.2-2'}} </mat-cell>
+					<mat-cell *matCellDef="let row" style="text-align: right;"> {{row.pr_quantity * row.pr_cost | number:'1.2-2'}} </mat-cell>
 				</ng-container>
 
 				<!-- <ng-container matColumnDef="PRParticulars">
@@ -69,14 +69,25 @@
 
 				<button mat-icon-button (click)="onUpdateApproveStatus('Disapprove')">
 					<img src="./assets/reject.PNG" width="40px" height="40px" alt="image">
-	 			 </button>
+	 			</button>
 			</p>
 
 			<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label=""> </mat-paginator>
 			<div *ngIf="remarks !== null"><strong>Remarks: </strong><span>{{ remarks }}</span></div>
-
-			
+			<br>
+			<div *ngIf="disBy != null">PR no. <strong>{{prnumber}}</strong> has been disapproved by <strong>{{disBy}}</strong> on <strong>{{disDate | date: 'MM/dd/yyyy HH:mm' }}</strong>.</div>
+			<table *ngFor="let row of StatusResult">
+				<tr>
+					<td *ngIf="row.pr_status == 'For DM Approval'">Date created: {{row.pr_datetime | date: 'MM/dd/yyyy HH:mm' }} </td>
+					<td *ngIf="row.pr_status == 'For Budget Checking'">Approved by Division Manager: {{row.pr_updatedBy}} on {{row.pr_datetime | date: 'MM/dd/yyyy HH:mm' }}</td>
+					<td *ngIf="row.pr_status == 'For Cash Allocation'">Approved by Budget: {{row.pr_updatedBy}} on {{row.pr_datetime | date: 'MM/dd/yyyy HH:mm' }}</td>
+					<td *ngIf="row.pr_status == 'For Printing'">Approved by Finance: {{row.pr_updatedBy}} on {{row.pr_datetime | date: 'MM/dd/yyyy HH:mm' }}</td>
+					<td *ngIf="row.pr_status == 'Disapprove(For Budget Checking)'">Disapproved by Budget: {{row.pr_updatedBy}} on {{row.pr_datetime | date: 'MM/dd/yyyy HH:mm' }}</td>
+					<!--<td *ngIf="row.pr_status == 'Approved'">Approved by GM: {{row.pr_updatedBy}} on {{row.pr_datetime | date: 'MM/dd/yyyy HH:mm' }}</td>-->
+				</tr>
+			</table>
 		</div>
+			
 	</div>
 </div>
 

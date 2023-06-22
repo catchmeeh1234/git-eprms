@@ -6,3 +6,25 @@
 mat-table {
     height: 300px;
 }
+
+mat-cell{
+    display:flex !important;
+    justify-content:center;
+    
+  }
+
+  mat-header-cell {
+    display:flex;
+    justify-content:center;
+  }
+  
+
+.mat-column-PRCost {
+    text-align: right;
+    justify-content: flex-end;
+  }
+
+.mat-column-TotalCost {
+    text-align: right;
+    justify-content: flex-end;
+  }

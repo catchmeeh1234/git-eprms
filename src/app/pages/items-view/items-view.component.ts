@@ -26,6 +26,13 @@ export class ItemsViewComponent implements OnInit {
   public prequestdivision:string;
   public purpose:string;
 
+  public disDate:string;
+  public disStatus:string;
+  public disBy:string;
+
+  public StatusResult:any;
+  public ResStatus:string;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private document:PrService, private router:Router) {
@@ -55,6 +62,23 @@ export class ItemsViewComponent implements OnInit {
       this.prequeststatus = result[0].pr_status;
       this.prequestdivision = result[0].pr_division;
       this.purpose = result[0].pr_purpose;
+      //console.log(this.prequeststatus);
+    });
+    
+    this.document.telLDisapprove(prnum)
+    .subscribe(data => {
+      let result:any = data;
+      this.StatusResult = result;
+      this.ResStatus = result.pr_status;
+      this.disDate = result[0].pr_datetime;
+      this.disBy = result[0].pr_updatedBy;
+    });
+
+    this.document.prHistory(prnum)
+    .subscribe(data => {
+      let result:any = data;
+      this.StatusResult = result;
+      //console.log(this.StatusResult);
     });
 
     const pr_title: any[] = [
