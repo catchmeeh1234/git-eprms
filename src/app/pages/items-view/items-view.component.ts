@@ -157,6 +157,7 @@ export class ItemsViewComponent implements OnInit, OnChanges {
       this.prequeststatus = result[0].pr_status;
       this.prequestdivision = result[0].pr_division;
       this.purpose = result[0].pr_purpose;
+      this.remarks = result[0].remarks;
       //console.log(this.prequeststatus);
     });
     
@@ -175,14 +176,12 @@ export class ItemsViewComponent implements OnInit, OnChanges {
       this.StatusResult = result;
       //console.log(this.StatusResult);
     });
-      //this.remarks = result[0].remarks;
 
       setTimeout(() => {
         this.checkApproveDisapproveButton();
         this.checkCancelButton();
       }, 0);
-
-    });
+    
   }
 
   PRBack() {

@@ -74,15 +74,6 @@
         </mat-form-field>
       </div>
       <div class="inline-form" style="justify-content: flex-end;">
-        <button *ngIf="prequeststatus === 'For DM Approval' && access === 'Encoder'" mat-flat-button color="primary" (click)="editPR()">
-          Edit PR
-				</button>
-
-				<button mat-icon-button (click)="onUpdateApproveStatus('Disapprove')">
-					<img src="./assets/reject.PNG" width="40px" height="40px" alt="image">
-	 			</button>
-			</p>
-
 			<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label=""> </mat-paginator>
 			<div *ngIf="remarks !== null"><strong>Remarks: </strong><span>{{ remarks }}</span></div>
 			<br>
