@@ -8,23 +8,18 @@ import { WebSocketService } from '../../../services/web-socket.service';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
-  selector: 'app-confirmation',
-  templateUrl: './confirmation.component.html',
-  styleUrls: ['./confirmation.component.scss']
+  selector: 'app-confirmation-generic',
+  templateUrl: './confirmation-generic.component.html',
+  styleUrls: ['./confirmation-generic.component.scss']
 })
-export class ConfirmationComponent implements OnInit {
+export class ConfirmationGenericComponent implements OnInit {
+
   public statusColor:string;
   public cancel_pr: FormGroup;
 
-  public isVisible:boolean;
-
-  private dataObject = {
-    confirm: 'yes'
-  };
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef:MatDialogRef<ConfirmationComponent>,
+    private dialogRef:MatDialogRef<ConfirmationGenericComponent>,
     private pr: PrService,
     private snackBar: MatSnackBar,
     private sessionStorageService: SessionStorageService,
@@ -36,31 +31,14 @@ export class ConfirmationComponent implements OnInit {
     this.cancel_pr = new FormGroup({
       cancel_remarks: new FormControl(null, Validators.required),
     });
-
-    this.isVisible = this.data.isRemarksVisible;
   }
 
-  onConfirm(pr_num:string) {
-    const config: MatSnackBarConfig = {
-      verticalPosition: 'top',
-      duration: 5000,
-      panelClass: ['statusSuccess']
-    };
-
-    if (this.cancel_pr.valid === true || this.data.isRemarksVisible === false) {
-      const { cancel_remarks } = this.cancel_pr.value;
-      this.dataObject['remarks'] = cancel_remarks;
-
-      this.dialogRef.close(this.dataObject);
-    } else {
-      this.statusColor = 'statusFailed';
-      config.panelClass = [this.statusColor];
-      this.snackBar.open('Something Went Wrong', 'Close', config);
-    }
+  onConfirm(pr_num) {
+    this.dialogRef.close('yes');
   }
 
   onCancel() {
-    this.dataObject.confirm = "no";
-    this.dialogRef.close(this.dataObject);
+    this.dialogRef.close('no');
   }
+
 }

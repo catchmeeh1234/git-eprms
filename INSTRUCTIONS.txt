@@ -1,0 +1,3 @@
+EDIT SYSTEM32 ETC FILE add backend.eprms.home and srwd.eprms.home
+INSTALL CERTIFICATE backend.eprms.home and srwd.eprms.home (MMC) google settings
+

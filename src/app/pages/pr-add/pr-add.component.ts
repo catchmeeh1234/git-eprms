@@ -11,6 +11,7 @@ import { SessionStorageService } from '../../services/session-storage.service';
 import { NotificationsService } from '../../services/notifications.service';
 import { WebSocketService } from '../../services/web-socket.service';
 import { EmployeeService } from '../../services/employee.service';
+import { Router } from '@angular/router';
 //import { StatusMessageComponent } from '../status-message/status-message.component';
 
 @Component({
@@ -47,7 +48,8 @@ export class PrAddComponent implements OnInit {
     private notif: NotificationsService,
     public websock: WebSocketService,
     private employee: EmployeeService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router:Router
   ) {
     this.productForm = this.fb.group({
       quantities: this.fb.array([]) ,
@@ -150,7 +152,7 @@ export class PrAddComponent implements OnInit {
   openStatusMessage(message) {
     const config: MatSnackBarConfig = {
       verticalPosition: 'top',
-      duration: 0,
+      duration: 5000,
       panelClass: ['style-snackbar-error']
     };
     //this.snackBar.openFromComponent(StatusMessageComponent, config);
@@ -220,6 +222,7 @@ export class PrAddComponent implements OnInit {
         this.websock.sendNotif(message);
         this.websock.updateNotification();
         this.clearAddPRForm();
+        this.viewpritems(prno.value);
       }
     });
 
@@ -230,6 +233,13 @@ export class PrAddComponent implements OnInit {
       division.value = "Administrative Services";
       purpose.value = "";
       prstatus.value = "For Approve";*/
+  }
+
+  viewpritems(selectedPrNO) {
+    if (selectedPrNO == null) {
+      return;
+    }
+    this.router.navigate(['/auth/pages/viewItems'], { queryParams: { prnum: selectedPrNO } });
   }
 
   async getAllData() {

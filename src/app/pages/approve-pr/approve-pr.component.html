@@ -53,7 +53,6 @@
 							<img src="./assets/accept.png" width="40px" height="40px" alt="image">
               				<!--<mat-icon>done_outline</mat-icon>-->
               </button>
-
               <button mat-icon-button (click)="onUpdateApproveStatus(row.pr_no, row.pr_status, row.pr_division, 'Disapprove')">
 							<img src="./assets/reject.PNG" width="40px" height="40px" alt="image">
               				<!--<mat-icon>clear</mat-icon>-->
@@ -61,11 +60,7 @@
             </mat-cell>
 				</ng-container>
 			</mat-table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-        showFirstLastButtons
-        aria-label=""
-      >
-      </mat-paginator>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label=""></mat-paginator>
 		</div>
 	</div>
 </div>

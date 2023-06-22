@@ -189,7 +189,6 @@ export class WebSocketService {
     return this.socket.emit('updateApprovePR', 'working');
   }
 
-
   broadcastWeatherInformation() {
     const query = "SELECT * FROM WeatherInformation";
     return this.socket.emit('broadcastWeatherInformation', query);

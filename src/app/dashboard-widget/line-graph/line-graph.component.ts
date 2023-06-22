@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { PrService } from '../../services/pr.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cdk-line-graph',
@@ -8,23 +10,42 @@ import { Chart } from 'chart.js';
 })
 export class LineGraphComponent implements OnInit {
 
-  constructor() { }
+  public Total:any;
+  
+  constructor(private document:PrService) { }
 
   ngOnInit() {
     setTimeout(() => {
         this.createLineChart();
     },500)
+
+    this.document.PRTotalJan()
+    .subscribe(data => {
+      let result:any = data;
+      this.Total = result;
+      console.log(this.Total)
+    });
   }
+  
   createLineChart() {
-      new Chart('line-graph', {
+    
+    let totaldata = [];
+    for (const div of this.Total) {
+        const prmonth:string = div.month;
+        const prtotal:any = div.total;
+          totaldata.push(prtotal);
+        };
+
+      let chart = new Chart('line-graph', {
                 type: 'line',
                 data: {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep",'Oct'],
+                    labels: ["January", "February", "March", "April", "May", "June", "July", "August","September",'October','November','December'],
+                    /*labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep",'Oct','Nov','Dec'],*/
                     datasets: [{
                         backgroundColor: 'rgba(92, 107, 192, 0.36)',
                         borderColor: 'rgba(92, 107, 192,.5)',
-                        data: [76.97, 88.91, 99.31, 122.19, 130.85, 140.91, 150.36, 142.66, 150.36, 142.66],
-                        label: 'Dataset',
+                        data: totaldata,
+                        label: 'Total',
                         fill: 'start'
                     }]
                 },
@@ -45,7 +66,7 @@ export class LineGraphComponent implements OnInit {
                     },
                     title: {
                         display: true,
-                        text: 'ASSIGNMENTS GRAPH '
+                        text: ''
                     }
                 }
         })

@@ -8,6 +8,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ModalComponent implements OnInit {
 
+  private dataObject = {
+    confirm: 'no'
+  };
+
   @Input() headerText: string;
   @Input() headerColor: string = '#ccc';
   @Input() headerWith: string;

@@ -1,6 +1,6 @@
 <!-- PR count / division -->
 <div class="mat-headline" style="margin: 10px 10px 5px 5px; border-bottom: 1px solid #dddddd;">
-    Total Purchase Requests Created
+    Total Purchase Requests Created per Division
 </div>
 <div fxLayout="row" fxLayout="row wrap">
     <div *ngFor="let dash of dashCard" fxFlex="25" fxFlex.lt-sm="100" fxFlex.lt-md="50">
@@ -8,15 +8,18 @@
     </div>
 </div>
 
-<!--<div fxLayout="row" fxLayout="row wrap">
+<!-- <div fxLayout="row" fxLayout="row wrap">
     <cdk-bar-graph fxFlex="37.5" fxFlex.lt-sm="100" fxFlex.sm="50"></cdk-bar-graph>
     <cdk-doughnut-graph fxFlex="37.5" fxFlex.lt-sm="100" fxFlex.sm="50"></cdk-doughnut-graph>
     <cdk-weather fxFlex="25" fxFlex.lt-sm="100" fxFlex.sm="100"></cdk-weather>
-</div>-->
+</div> -->
 
+<div class="mat-headline" style="margin: 10px 10px 5px 5px; border-bottom: 1px solid #dddddd;">
+    Total Purchase Requests Created per Month
+</div>
 <div fxLayout="row" fxLayout="row wrap">
     <cdk-line-graph fxFlex="100" fxFlex.lt-sm="100" fxFlex.sm="50"></cdk-line-graph>
-    <!--<cdk-share-price fxFlex="25" fxFlex.lt-sm="100" fxFlex.sm="50"></cdk-share-price>-->
+    <!-- <cdk-share-price fxFlex="25" fxFlex.lt-sm="100" fxFlex.sm="50"></cdk-share-price> -->
 </div>
 <!--<div fxLayout="row" fxLayout="row wrap">
     <cdk-sales-list fxFlex="60" fxFlex.lt-sm="100" fxFlex.sm="100" fxFlex.md="70"></cdk-sales-list>

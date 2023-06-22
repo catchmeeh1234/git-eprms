@@ -1,5 +1,5 @@
 .table-container {
-    height:700px;
+    height:auto;
     //overflow: auto;
 }
 
@@ -28,3 +28,25 @@ mat-cell{
     text-align: right;
     justify-content: flex-end;
   }
+    height: auto;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inline-form {
+  display: flex;
+  gap: 15px;       /* Adds a 10px gap between flex items */
+  width: 100%;     /* Sets the width to 100% of the container */
+  align-items: center;
+}
+
+.mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after, .mat-input-element:disabled {
+  color: rgba(0,0,0,1)!important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-disabled.mat-form-field-label {
+  color: rgba(0,0,0,.6)!important;
+}

@@ -9,6 +9,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ViewDocumentsComponent } from './srwd/view-documents/view-documents.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     HttpClientModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

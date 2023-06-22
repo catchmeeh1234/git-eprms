@@ -7,7 +7,7 @@
   <div class="modal-message">{{data.message}}</div>
   <div>
     <form [formGroup]="cancel_pr">
-      <textarea cols="30" rows="10" placeholder="Please enter your remarks here .." formControlName="cancel_remarks"></textarea>
+      <textarea *ngIf="isVisible" cols="30" rows="10" placeholder="Please enter your remarks here .." formControlName="cancel_remarks"></textarea>
     </form>
   </div>
   <div class="modal-buttons">

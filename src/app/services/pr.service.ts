@@ -12,7 +12,13 @@ export class PrService {
   public dataSource:any;
   public dataSourcePRTable:any;
 
-  constructor(private http:HttpClient, private sessionStorageService:SessionStorageService) { }
+  public prnumber:string;
+  public message:string;
+  private statusColor:string;
+
+  constructor(private http:HttpClient,
+              private sessionStorageService:SessionStorageService,
+  ) { }
 
   loadPR() {
     let div = this.sessionStorageService.getSession('division');
@@ -37,9 +43,9 @@ export class PrService {
     return this.http.get(API_URL + `/api/approvepr.php?div=${div}&role=${access}`, {responseType: 'json'});
   }
 
-  updateApproveStatus(prnum, status, username, button) {
-    return this.http.get(API_URL + `/prApproveStatus.php?prnum=${prnum}&status=${status}&name=${username}&stat=${button}`, {responseType: 'text'});
-  }
+  // updateApproveStatus(prnum, status, username, button) {
+  //   return this.http.get(API_URL + `/prApproveStatus.php?prnum=${prnum}&status=${status}&name=${username}&stat=${button}`, {responseType: 'text'});
+  // }
 
   telLDisapprove(prnum) {
     return this.http.get(API_URL + `/api/telLDisapprove.php?prnum=${prnum}`, {responseType: 'json'});
@@ -103,10 +109,16 @@ export class PrService {
     return this.http.get(API_URL + `/viewDivisions.php`, {responseType: 'json'});
   }
 
-  cancelPR(prDetails:any) {
+  updatePrRequestAPI(prDetails:any) {
     return this.http.post(API_URL + `/cancelPR.php`, prDetails, {responseType: 'json'});
   }
   loadPrAndItems(prno:string) {
+    console.log(prno);
     return this.http.get(API_URL + `/loadPrAndItems.php?prno=${prno}`, {responseType: 'json'});
+  }
+
+  //* monthly total pr */
+  PRTotalJan() {
+    return this.http.get(API_URL + '/api/JanTotalPR.php', {responseType: 'json'});
   }
 }

@@ -1,0 +1,13 @@
+<app-modal
+[headerText]="data.headerText"
+[containerWidth]="data.containerWidth"
+>
+<div class="modal-container">
+  <i class="fas fa-check-circle"></i>
+  <div class="modal-message">{{data.message}}</div>
+  <div class="modal-buttons">
+    <button mat-flat-button color="primary" class="modal-confirm" (click)="onConfirm(data.number)" style="margin-right: 5px;">Yes</button>
+    <button mat-flat-button color="warn" class="modal-cancel" (click)="onCancel()">No</button>
+  </div>
+</div>
+</app-modal>

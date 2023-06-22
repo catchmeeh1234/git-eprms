@@ -2,6 +2,7 @@ import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/cor
 import { NotificationsService } from '../../services/notifications.service';
 import { SessionStorageService } from '../../services/session-storage.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { PrService } from '../../services/pr.service';
 
 @Component({
   selector: 'cdk-toolbar-notification',
@@ -31,7 +32,8 @@ export class ToolbarNotificationComponent implements OnInit {
       private elementRef: ElementRef,
       public notif: NotificationsService,
       private sessionStorageService: SessionStorageService,
-      private router:Router
+      private router:Router,
+      private pr: PrService
     ) { }
 
   	ngOnInit() {
@@ -42,24 +44,23 @@ export class ToolbarNotificationComponent implements OnInit {
       });
   	}
 
-  	select(selectedPrNO) {
+  	select(selectedPrNO:string) {
       const queryParams = { prnum: selectedPrNO };
       const navigationExtras: NavigationExtras = {
         queryParams,
         queryParamsHandling: 'merge' // 'merge' will merge the new parameters with the existing ones
       };
-      this.router.navigate(['/auth/pages/viewPR']);
 
-      setTimeout(() => {
-          this.router.navigate(['/auth/pages/viewItems'], navigationExtras);
-      }, 0);
+      this.router.navigateByUrl('/auth/pages/viewPR', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/auth/pages/viewItems'], navigationExtras);
+      });
 
       this.isOpen = false;
 
   	}
 
   	delete(notification) {
-
+      console.log(notification);
   	}
 
 }

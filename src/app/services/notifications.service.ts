@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_URL } from '../constants';
+import { API_URL, domain } from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -46,8 +46,8 @@ export class NotificationsService {
 
     const notification = new Notification('New Message', options );
     notification.onclick = function() {
-      //window.open("https://srwd.smartmetersystem.home/");
-      notification.close();
+      window.open(domain);
+      //notification.close();
     };
   }
 }

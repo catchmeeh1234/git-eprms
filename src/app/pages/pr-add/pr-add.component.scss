@@ -148,7 +148,7 @@ table {
   }
   .pr-items {
     overflow: auto;
-    height: 150px;
+    height: 220px;
   }
 
   .sticky-header {
@@ -156,4 +156,14 @@ table {
     top: 0;
     background-color: #327ebd;
     color: white;
+    border: 0px solid black;
+  }
+  table {
+    border-collapse: collapse;
+
+  }
+
+  td, th {
+    padding: 0;
+    margin: 0;
   }

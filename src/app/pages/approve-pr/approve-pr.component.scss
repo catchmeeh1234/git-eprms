@@ -1,4 +1,4 @@
-.mat-column-PRNo {
+.mat-column-PRNo, .mat-column-PRDate {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 8% !important;
@@ -14,23 +14,7 @@
     hyphens: auto;
   }
 
-  .mat-column-PRDate {
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 8% !important;
-    width: 8% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-
-    word-break: break-word;
-
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
-
-  .mat-column-PRRequestor {
+  .mat-column-PRRequestor, .mat-column-PRDesignation, .mat-column-PRDivision, .mat-column-PRPurpose, .mat-column-PrAction {
     word-wrap: break-word !important;
     white-space: unset !important;
     flex: 0 0 15% !important;
@@ -46,66 +30,24 @@
     hyphens: auto;
   }
 
-  .mat-column-PRDesignation {
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 15% !important;
-    width: 15% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+.mat-column-PRPurpose {
+  flex: 0 0 25% !important;
+  width: 25% !important;
+}
 
-    word-break: break-word;
+.mat-column-PrAction {
+  flex: 0 0 10% !important;
+  width: 10% !important;
+}
 
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
+.mat-row:nth-child(even){
+    background-color: #ffffff;
+}
 
-  .mat-column-PRDivision {
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 15% !important;
-    width: 15% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+.mat-row:nth-child(odd){
+    background-color: #cccccc;
+}
 
-    word-break: break-word;
-
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
-
-  .mat-column-PRPurpose {
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 29% !important;
-    width: 29% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-
-    word-break: break-word;
-
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
-
-  .mat-column-PrAction {
-    word-wrap: break-word !important;
-    white-space: unset !important;
-    flex: 0 0 10% !important;
-    width: 10% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-
-    word-break: break-word;
-
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-  }
+table{
+  width: 100%;
+ }
